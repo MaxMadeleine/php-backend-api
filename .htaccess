@@ -1,6 +1,10 @@
-   RewriteEngine On
+RewriteEngine On
 
-    # Handle Front Controller...
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
+# Route requests to Login.php
+RewriteCond %{REQUEST_URI} ^/api/Login [NC]
+RewriteRule ^Login(.*)$ Login.php [L,QSA]
+
+# Handle Front Controller...
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
